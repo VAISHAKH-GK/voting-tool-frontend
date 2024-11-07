@@ -6,6 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
   <link href="styles/login.css" rel="stylesheet">
+  <script>
+    function signup(e) {
+        window.location.href = "signup.html"
+    }
+    function login(e) {
+        window.location.href = "index.html"
+    }
+  </script>
 </head>
 
 <body>
@@ -16,9 +24,9 @@
         <input type="text" placeholder="Username">
         <input type="password" placeholder="Password">
         <a href="forgot-password.html">Forgot Password ?</a>
-        <button class="login" >Login</button>
+        <button class="login" type="button" onclick="login()" >Login</button>
         <br>
-        <button class="signup">Don't have an account ? Signup</button>
+        <button onclick="signup()" type="button" class="signup">Don't have an account ? Signup</button>
       </form>
     </div>
   </main>
