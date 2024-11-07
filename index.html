@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voting Tool</title>
+  <link href="styles/dashboard.css" rel="stylesheet">
+  <link href="styles/sidebar.css" rel="stylesheet">
+  <link href="styles/main.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script>
+    function move() {
+      window.location.href = "poll.html"
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <section class="sidebar">
+      <div class="heading">
+        <h1>Dash Board</h1>
+      </div>
+      <div class="tab">
+        <a href="new-poll.html">Create new poll</a>
+      </div>
+      <div class="tab selected">
+        <a href="index.html">Polls</a>
+      </div>
+    </section>
+    <div class="right-section">
+      <div class="main">
+        <div class="polls">
+          <div class="poll">
+            <p>First Poll
+              <i onclick="move()" class="arrow right"></i>
+            </p>
+          </div>
+          <div class="poll">
+            <p>First poll
+              <i onclick="move()" class="arrow right"></i>
+            </p>
+          </div>
+          <div class="poll">
+            <p>First poll
+              <i onclick="move()" class="arrow right"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
