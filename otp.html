@@ -6,6 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
   <link href="styles/forgot-password.css" rel="stylesheet">
+  <script>
+    function queryString(url) {
+      const str1 = url.split('?')[1];
+      const params = {};
+
+      if (str1) {
+        const pairs = str1.split('&');
+        for (const pair of pairs) {
+          const [key, value] = pair.split('=');
+          params[key] = decodeURIComponent(value
+            .replace(/\+/g, ' '));
+        }
+      }
+
+      return params;
+    }
+
+    function submitOtp() {
+      var {redirect} = queryString(window.location.href)
+      if (redirect && redirect != undefined && redirect != null) {
+        window.location.href = redirect + ".html"
+      } else {
+        window.location.href = "login.html"
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -14,10 +40,9 @@
       <h1>Submit OTP</h1>
       <form>
         <input type="number" placeholder="OTP">
-        <button class="send-otp" >Submit</button>
+        <button type="button" onclick="submitOtp()" class="send-otp">Submit</button>
       </form>
     </div>
   </main>
 </body>
-
 </html>
