@@ -10,6 +10,28 @@
   <link href="styles/main.css" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script>
+    var options = 2
+
+    function addInput() {
+      options++
+      var newInput = document.createElement("input");
+      newInput.type = "text";
+      newInput.name = "option" + "-" + options;
+      newInput.id = "option" + "-" + options;
+      newInput.placeholder = "Option " + options;
+
+      var myDiv = document.getElementById("options");
+      myDiv.appendChild(newInput);
+    }
+
+    function deleteInput() {
+      var input = document.getElementById("option-" + options)
+      input.remove()
+      options--
+    }
+  </script>
 </head>
 
 <body>
@@ -32,11 +54,13 @@
             <form>
               <input type="text" placeholder="Poll Name">
               <textarea placeholder="Poll Description"></textarea>
-              <input type="text" placeholder="Option 1">
-              <input type="text" placeholder="Option 2">
+              <div id="options">
+                <input type="text" name="option-1" id="option-1" placeholder="Option 1">
+                <input type="text" name="option-2" id="option-2" placeholder="Option 2">
+              </div>
               <div class="option-buttons">
-                <button>Add Another Option</button>
-                <button>Delete Option</button>
+                <button type="button" onclick="addInput()">Add Another Option</button>
+                <button type="button" onclick="deleteInput()" >Delete Option</button>
               </div>
               <button class="save-button">Save</button>
             </form>

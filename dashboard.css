@@ -1,0 +1,58 @@
+body {
+    background-color: hsl(from var(--background-color) h s l/1);
+    color: hsl(from var(--text-color) h s l/1);
+
+    margin: 0;
+}
+
+.right-section {
+    margin-left: 17rem;
+}
+
+.navbar h1 {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.right-section {
+    flex: 1;
+}
+
+.main{
+    padding: 50px 100px;
+}
+
+.polls{
+    background-color: hsl(from var(--primary-color) h s l/.1);
+    border-radius: 10px;
+}
+
+.poll {
+    padding: 10px;
+    height: 50px;
+}
+
+.poll:not(:last-child) {
+    border-bottom: 0.3px solid grey;
+}
+
+.arrow {
+    float: right;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 5px;
+    margin-right: 20px;
+}
+
+.arrow:hover {
+    cursor: pointer;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}

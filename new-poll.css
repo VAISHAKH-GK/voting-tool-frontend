@@ -1,0 +1,105 @@
+body {
+    background-color: hsl(from var(--background-color) h s l/1);
+    color: hsl(from var(--text-color) h s l/1);
+
+    margin: 0;
+}
+
+.navbar h1 {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.right-section {
+    margin-left: 19rem;
+    flex: 1;
+}
+
+.main {
+    padding: 50px 100px;
+}
+
+.form {
+    background-color: hsl(from var(--primary-color) h s l/.1);
+    border-radius: 10px;
+    padding: 50px;
+}
+
+textarea {
+    resize: none;
+}
+
+.form-section input,
+textarea {
+    color: hsl(from var(--text-color) h s l/0.5);
+}
+
+.form-section .left-section {
+    width: 50%;
+}
+
+.form-section input {
+    background-color: hsl(from var(--background-color) h s l/1);
+
+    width: 95%;
+    border: none;
+
+    height: 1.4cm;
+    padding: 10px 2%;
+    border-radius: 25px;
+    margin-bottom: 1rem;
+}
+
+.form-section textarea {
+    background-color: var(--background-color);
+
+    width: 95%;
+    border: none;
+
+    height: 4cm;
+    padding: 10px 2%;
+    border-radius: 25px;
+    margin-bottom: 1rem;
+}
+
+.option-buttons button {
+    background-color: hsl(from var(--secondary-color) h s l/1);
+    color: hsl(from var(--text-color) h s l/.7);
+
+    width: 48%;
+    border: none;
+
+    height: 1.5cm;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin-bottom: 1rem;
+}
+
+.option-buttons button:hover {
+    background-color: hsl(from var(--secondary-color) h s l/0.9);
+    color: hsl(from var(--text-color) h s l/.7);
+}
+
+.option-buttons {
+    width: 99%;
+    padding: 20px 0 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-section .save-button {
+    background-color: hsl(from var(--primary-color) h s l/1);
+    color: hsl(from var(--background-color) h s l/1);
+    width: 100%;
+
+    border: none;
+    height: 1.5cm;
+    border-radius: 25px;
+}
+
+.form-section .save-button:hover {
+    background-color: hsl(from var(--primary-color) h s l/0.9);
+}

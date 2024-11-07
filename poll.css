@@ -1,0 +1,58 @@
+body {
+    background-color: hsl(from var(--background-color) h s l/1);
+    color: hsl(from var(--text-color) h s l/1);
+
+    margin: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.right-section{
+    flex: 1;
+    padding: 50px 200px;
+    margin-left: 17rem;
+}
+
+.main{
+    background-color: hsl(from var(--primary-color) h s l/.1);
+    border-radius: 10px;
+    padding: 50px;
+}
+
+.main h1 {
+    margin-top: 0;
+}
+
+.option {
+    width: 96%;
+    padding: 0 2%;
+    height: 2cm;
+    background-color: hsl(from var(--secondary-color) h s l/.1);
+    border-radius: 20px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.selected-option{
+    background-color: hsl(from var(--secondary-color) h s l/1);
+}
+
+.form-section button {
+    background-color: #98D7B7CC;
+    color: black;
+    width: 100%;
+
+    border: none;
+    height: 1.5cm;
+    border-radius: 25px;
+}
+
+.form-section button:hover {
+    background-color: #98D7B7FF;
+}
