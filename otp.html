@@ -1,48 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link href="styles/forgot-password.css" rel="stylesheet" />
+    <script>
+      function queryString(url) {
+        const str1 = url.split("?")[1];
+        const params = {};
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <link href="styles/forgot-password.css" rel="stylesheet">
-  <script>
-    function queryString(url) {
-      const str1 = url.split('?')[1];
-      const params = {};
+        if (str1) {
+          const pairs = str1.split("&");
+          for (const pair of pairs) {
+            const [key, value] = pair.split("=");
+            params[key] = decodeURIComponent(value.replace(/\+/g, " "));
+          }
+        }
 
-      if (str1) {
-        const pairs = str1.split('&');
-        for (const pair of pairs) {
-          const [key, value] = pair.split('=');
-          params[key] = decodeURIComponent(value
-            .replace(/\+/g, ' '));
+        return params;
+      }
+
+      function submitOtp() {
+        var { redirect } = queryString(window.location.href);
+        if (redirect && redirect != undefined && redirect != null) {
+          window.location.href = redirect + ".html";
+        } else {
+          window.location.href = "login.html";
         }
       }
+    </script>
+  </head>
 
-      return params;
-    }
-
-    function submitOtp() {
-      var {redirect} = queryString(window.location.href)
-      if (redirect && redirect != undefined && redirect != null) {
-        window.location.href = redirect + ".html"
-      } else {
-        window.location.href = "login.html"
+  <body>
+    <main>
+      <div class="center">
+        <h1>Submit OTP</h1>
+        <form id="form" action="http://localhost:9000/otp" method="POST">
+          <input name="otp" type="text" placeholder="OTP" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </main>
+    <script>
+      function login(e) {
+        window.location.href = "login.html";
       }
-    }
-  </script>
-</head>
+      let form = document.getElementById("form");
 
-<body>
-  <main>
-    <div class="center">
-      <h1>Submit OTP</h1>
-      <form>
-        <input type="number" placeholder="OTP">
-        <button type="button" onclick="submitOtp()" class="send-otp">Submit</button>
-      </form>
-    </div>
-  </main>
-</body>
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        let formData = new FormData(form);
+        let url = "http://localhost:9000/otp";
+        try {
+          let response = await fetch(url, { method: "POST", body: formData , credentials: "include"});
+          if (response.ok) {
+            window.location.href = "index.html";
+          } else {
+            alert("Signup failed");
+          }
+        } catch (e) {
+          alert("Signup failed");
+          console.log(e);
+        }
+      });
+    </script>
+  </body>
 </html>

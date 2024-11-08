@@ -1,35 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link href="styles/signup.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <link href="styles/signup.css" rel="stylesheet">
-  <script>
-    function login(e) {
-        window.location.href = "login.html"
-    }
-    function signup(e) {
-        window.location.href = "otp.html"
-    }
-  </script>
-</head>
+  <body>
+    <main>
+      <div class="center">
+        <h1>Signup</h1>
+        <form id="form" action="http://localhost:9000/signup" method="post">
+          <input type="email" name="email" placeholder="Email" />
+          <input type="text" name="username" placeholder="Username" />
+          <input type="password" name="password" placeholder="Password" />
+          <button class="signup" type="submit">Sign Up</button>
+          <br />
+          <button class="login" type="submit" onclick="login()">
+            Already Have an account ? Login
+          </button>
+        </form>
+      </div>
+    </main>
+    <script>
+      function login(e) {
+        window.location.href = "login.html";
+      }
+      let form = document.getElementById("form");
 
-<body>
-  <main>
-    <div class="center">
-      <h1>Signup</h1>
-      <form>
-        <input type="email" placeholder="Email">
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
-        <button class="signup" type="button" onclick="signup()">Sign Up</button>
-        <br>
-        <button class="login" type="button" onclick="login()">Already Have an account ? Login</button>
-      </form>
-    </div>
-  </main>
-</body>
-
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        let formData = new FormData(form);
+        let url = "http://localhost:9000/signup"
+        try {
+          let response = await fetch(url, { method: "POST", body: formData , credentials: "include"});
+          if (response.ok) {
+            window.location.href = "otp.html"
+          } else {
+            alert("Signup failed")
+          }
+        } catch (e) {
+          alert("Signup failed")
+          console.log(e)
+        }
+      });
+    </script>
+  </body>
 </html>
